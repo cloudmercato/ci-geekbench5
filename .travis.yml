@@ -1,0 +1,15 @@
+language: python
+python:
+  - "3.6"
+  
+# command to install dependencies
+install:
+  - echp "$CONFIG" > /etc/cb_client.json
+  - pip install https://github.com/cloudspectatordevelopment/cb-client/archive/master.tar.gz
+  - wget http://cdn.geekbench.com/Geekbench-5.0.0-Linux.tar.gz
+  - tar xf Geekbench-5.0.0-Linux.tar.gz
+  - Geekbench-5.0.0-Linux/geekbench5 --unlock $geekbench_email $geekbench_key
+
+script:
+  - Geekbench-5.0.0-Linux/geekbench5 --no-upload --export-json output.json
+  - cb-client geekbench5 
