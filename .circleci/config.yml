@@ -1,0 +1,20 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: debian:stretch
+    steps:
+      - checkout
+      - run:
+          name: Run
+          command: |
+              apt update -qq
+              apt install -qq -y git
+              git submodule sync
+              git submodule update --init
+
+              export image_id=$DEBIAN_STRETCH_IMAGE_ID
+              export flavor_id=$DOCKER_FLAVOR_ID
+              ci-base/install.sh circleci
+              ./install.sh circleci
+              ./run.sh

@@ -3,5 +3,7 @@ os:
   - linux
   - osx
 
-install: ./install.sh
+install:
+  - ci-base/install.sh travis
+  - ./install.sh travis
 script: ./run.sh
