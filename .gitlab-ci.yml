@@ -1,0 +1,13 @@
+---
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+
+Job:
+  image: python:3.8
+  before_script:
+    - echo 123 $geekbench_email $geekbench_key
+    - ci-base/install.sh gitlabci
+    - ./install.sh gitlabci
+  script:
+    - ./run.sh
+
