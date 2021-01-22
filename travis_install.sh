@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [[ "$TRAVIS_OS_NAME" == "linux" ]] ; then
-    ./install_linux.sh
+    ./linux_install.sh
 elif [[ "$TRAVIS_OS_NAME" == "osx" ]] ; then
-    ./install_macos.sh
+    ./macos_install.sh
 fi
