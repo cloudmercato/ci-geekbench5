@@ -1,3 +1,4 @@
 [submodule "ci-base"]
 	path = ci-base
 	url = https://github.com/cloudmercato/ci-base.git
+	branch = master
